@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  	<title>Union Memory Card Exercise</title>
+  	<meta name="author" content="Spencer Pope">
+  	<meta name="description" content="Flip over two cards to try to find matches">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans" rel="stylesheet">  	
+	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="top-bar">
+		<div class="players-contain">
+			<div id="red" class="players">
+				<div class="score"></div>
+			</div>
+			<div id="blue" class="players">
+				<div class="score"></div>
+			</div>
+			<div class="restart-contain">
+				<button class="restart-menu-bar">restart</button>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="game"></div>
+		<div class="modal-overlay">
+			<div class="modal">
+				<div id="container">
+					<div id="ball">
+						<i class="em em-smiling_imp"></i>
+					</div>
+  					<div id="shadow"></div>
+  				</div>
+				<h2 class="winner"></h2>
+				<button class="restart">Play Again?</button>
+			</div>
+		</div>
+		<div class="restart-modal">
+			<div class="modal">
+				<div id="container">
+					<div id="ball2">
+						<i class="em em-open_mouth"></i>
+					</div>
+  					<div id="shadow2"></div>
+  				</div>
+				<h2 class="message">You sure?</h2>
+				<button class="restart">Restart</button>
+				<div class="cancel-restart-modal">
+					<span class="cancel-restart">cancel</span>
+				</div>
+			</div>
+		</div>
+  	</div>
+ <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+ <script type="text/javascript" src="jquery.easing.1.3.js"></script>
+ <script type="text/javascript" src="bounceEffect.js"></script>
+ <script src="index.js"></script>
+</body>
+</html>

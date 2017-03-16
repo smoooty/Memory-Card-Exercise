@@ -1,0 +1,299 @@
+/*General Styles*/
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  background: black;
+  min-height: 100%;
+  margin: 0;
+}
+.wrap {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  margin: 5px;
+}
+
+/*Top Bar -- Players and Restart button*/
+.top-bar{
+  position: relative;
+  width:100%;
+  background: #295f48;
+  z-index:100;
+  top:0;
+  height:5%;
+  min-height: 32px;
+}
+.players-contain{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.players{
+  font-family: 'Fira Mono', monospace;
+  font-weight: 600; 
+  font-size: 16pt;
+  margin-left: 40px;
+  display: inline-block;
+}
+#red, .red{
+  color: #ff0000;
+}
+#blue, .blue {
+  color: #0000ff;
+}
+.active {
+  text-decoration: underline;
+}
+.restart-contain{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.restart-menu-bar{
+  font-family: 'Fira Mono', monospace;
+  font-weight: 600; 
+  font-size: 16pt;
+  display: inline-block;
+  margin-right:40px;
+  background: #295f48;
+  border: none;
+  outline: none;
+}
+.restart-menu-bar:hover{
+  color: #eeeeee;
+}
+.restart-menu-bar:focus{
+  color: #eeeeee;
+}
+
+/*Game Cards*/
+.game {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  min-height: 100%;
+  height: 100%;}
+
+@-webkit-keyframes matchAnim {
+  0% {
+    background: #295f48;
+  }
+  100% {
+    background: #eeeeee;
+  }
+}
+@keyframes matchAnim {
+  0% {
+    background: #295f48;
+  }
+  100% {
+    background: #eeeeee;
+  }
+}
+.card {
+  float: left;
+  width: 16.66666%;
+  height: 25%;
+  padding: 5px;
+  text-align: center;
+  display: block;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  position: relative;
+  cursor: pointer;
+  z-index: 50;
+  -webkit-tap-highlight-color: transparent;
+}
+.card {
+  width: 50%;
+  height: 26.666%;
+}
+.card .inside {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+  background: #eeeeee;
+}
+.card .inside.selected, .card .inside.matched {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.card .inside.matched {
+  -webkit-animation: matchAnim 1s normal forwards ease-in-out;
+          animation: matchAnim 1s normal forwards ease-in-out;
+  -webkit-animation-delay: .4s;
+          animation-delay: .4s;
+}
+.card .front, .card .back {
+  border: 1px solid black;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+.card .front{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card .front i{
+  font-size: 20pt;
+}
+.card .front img, .card .back img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+}
+.card .front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+/*Modals, Pop-Ups*/
+.modal-overlay, .restart-modal{
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal {
+  display: none;
+  position: relative;
+  width: 500px;
+  height: 400px;
+  max-height: 90%;
+  max-width: 90%;
+  min-height: 380px;
+  margin: 0 auto;
+  background: #eeeeee;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding: 30px 10px;
+}
+.modal .winner, .modal .message {
+  font-size: 45pt;
+  text-align: center;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 800; 
+}
+.modal .restart {
+  font-family: 'Fira Mono', monospace;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin: 30px auto;
+  padding: 20px 30px;
+  display: block;
+  font-size: 20pt;
+  background: none;
+  border-bottom: 5px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-top: none;
+  color: #000;
+  cursor: pointer;
+}
+.modal .restart:hover {
+  border-color: #295f48;
+  color: #295f48;
+}
+.modal .restart:focus {
+  border-color: #295f48;
+  color: #295f48;
+}
+.cancel-restart-modal{
+  font-family: 'Fira Mono', monospace;
+  font-weight: 400;
+  font-size: 10pt;
+  letter-spacing: 0.1em;
+  width: 100%;
+  text-align: right;
+}
+.cancel-restart-modal span:hover{
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+}
+
+/*Bounce Effect Styles*/
+#container {
+    position: absolute;
+    width:100%; 
+}
+#ball, #ball2 {
+    border-radius: 50%;
+    position:relative;
+    left:50%;   
+    z-index:2;
+    display:none;
+    font-size: 30pt;
+    text-align: center;
+}
+#shadow, #shadow2 {
+    border-radius: 50%;
+    background-color: #CCC;
+    position:relative;
+    margin-bottom: 10px;
+    left:50%;
+    z-index:1;
+    display:none;
+}
+h2{
+  margin-bottom: 0;
+  padding-top: 60px;
+}
+
+/*Media Queries*/
+@media screen and (min-width: 30em){
+  .modal .winner, .modal .message{
+    font-size: 50pt;
+  }
+  .card {
+    width: 50%;
+    height: 36.666%;
+  }
+}
+@media screen and (min-width: 48em){
+  .modal .winner, .modal .message{
+    font-size: 55pt;
+  }
+   .card {
+    width: 33.3%;
+    height: 16.666%;
+  }
+  h2{
+    margin-bottom: 0;
+    padding-top: 30px;
+  }
+}
+@media screen and (min-width: 67em){
+  .modal .winner, .modal .message{
+    font-size: 60pt;
+  }
+  .card {
+    width: 25%;
+    height: 16%;
+  }
+}
